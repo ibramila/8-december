@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Toast</title>
+</head>
+
+<body>
+    <div id="inputs">
+        <!-- input -->
+        <span></span>
+        <textarea id="message-content" placeholder="Message content..."></textarea>
+        <div class="input">
+            <!-- time -->
+            <label for="duration">Duration</label>
+            <input id="duration" type="number" min="500" value="3000" />
+        </div>
+        <div class="input">
+            <!-- tick cancelable -->
+            <label for="cancelable">Is Cancelable</label>
+            <input id="cancelable" type="checkbox" />
+        </div>
+        <div class="input">
+            <!-- success -->
+            <label for="success">Success</label>
+            <input id="success" type="radio" name="type" value="success" checked />
+            <!-- error -->
+            <label for="error">Error</label>
+            <input id="error" type="radio" name="type" value="error" />
+        </div>
+        <button id="add-button">Add Toast</button>
+
+        <button id="clear-button">Clear Toasts</button>
+    </div>
+    <!-- Toasters -->
+    <div id="toasts">
+
+    </div>
+
+    <script src="./appp.js"></script>
+</body>
+
+</html>
