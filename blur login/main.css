@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', san-serif;
+    font-weight: 900;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(20px);
+    background-image: url(./background-image/nyc.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form {
+    z-index: 999;
+    padding: 10px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    background-color: lightgray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 40px;
+    color: darkslategrey;
+}
+
+.ourInput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    color: darkslategrey;
+}
+
+#sc-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input {
+    color: darkslategrey;
+    padding: 10px 5px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+input:hover,
+input:focus {
+    border: 1px solid lightgray
+}
+
+#submit {
+    width: 40%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    padding: 10px;
+    background-color: lightslategray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
+.fa-lock-open {
+    display: none;
+}
+
+.fa-lock {
+    display: block;
+}
+
+.progress-bar {
+    border-radius: 5px;
+}

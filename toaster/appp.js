@@ -7,68 +7,57 @@ let success = document.getElementById("success");
 let error = document.getElementById("error");
 let toasts = document.getElementById("toasts");
 let innerToast = document.getElementById("innerToast");
-let cancelBtn = document.querySelectorAll(".cancel-button")
-// let canceltoast =document.querySelectorAll(".toast");
+// let cancelBtn = document.querySelectorAll(".cancel-button")
 
-// const myTimeout = setTimeout(addFunction, 0);
-
-// function myStopFunction() {
-//     clearTimeout(myTimeout);
-//     innerToast.innerHTML = "";
-// }
-// function myFunction() {
-//     var x = document.getElementById("myCheck").checked;
-//     document.getElementById("demo").innerHTML = x;
-// }
 addBtn.addEventListener("click", addFunction);
 clearBtn.addEventListener("click", clearFunction);
-cancelBtn.addEventListener("click", cancelFunction);
-
-
+// button.addEventListener("click", cancelFunction);
 
 function addFunction() {
-    console.log(message.value);
-    if ((message.value == "") && (success.checked == true) && (cancelable.checked == true)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast success-toast"><p> ${"Success!"} </p> <button class="cancel-button">X</button>
-         </div>`
+    const toast = document.createElement("div");
+    toast.classList.add("toast")
+    const testMsg = document.createElement("p");
+    toast.appendChild(testMsg);
+    toasts.appendChild(toast);
+
+    if (success.checked) {
+        testMsg.innerText = "success"
+        toast.classList.add("success-toast");
+    } else {
+        testMsg.innerText = "error"
+        toast.classList.add("error-toast");
+    }
+
+    if (message.value) {
+        testMsg.innerText = `${message.value}`
 
     }
-    else if ((message.value == "") && (success.checked == true) && (cancelable.checked == false)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast success-toast"><p> ${"Success!"} </p></div>`
 
+    if (cancelable.checked) {
+        const button = document.createElement("button");
+        button.innerText = "x";
+        toast.appendChild(button);
+        // button.onclick = function myfunc(e) {
+        //   toast.remove();
+        // }
     }
-    else if ((message.value == "") && (error.checked == true) && (cancelable.checked == true)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast error-toast"><p> ${"Error!"} </p> <button class="cancel-button">X</button></div>`
 
-    }
-    else if ((message.value == "") && (error.checked == true) && (cancelable.checked == false)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast error-toast"><p> ${"Error!"} </p></div>`
-
-    }
-    else if ((success.checked == true) && (cancelable.checked == true)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast success-toast"><p> ${message.value} </p><button class="cancel-button">X</button></div>`
-
-    }
-    else if ((error.checked == true) && (cancelable.checked == false)) {
-        toasts.innerHTML += `<div id="innerToast" class="toast error-toast"><p> ${message.value} </p></div>`
-
+    if ((duration.value == "") && (duration.value < 500) && duration.value.isNaN) {
+        setTimeout(() => {
+            toast.remove()
+        }, 500)
+    } else {
+        setTimeout(() => {
+            toast.remove();
+        }, duration.value)
     }
 
     message.value = "";
 
-    // const toast = document.querySelector(".toast")
-    // const myTimeout = setTimeout(() => {
-    //     toast.remove();
-
-    // }, duration.value);
-
 }
+
 
 function clearFunction() {
     toasts.innerHTML = "";
-
-}
-function cancelFunction() {
-    // innerToast.innerHTML="";
 
 }
