@@ -18,7 +18,7 @@ main {
     width: 100%;
     height: 100%;
     filter: blur(20px);
-    background-image: url(./background-image/nyc.jpg);
+    background-image: url(./media/nyc.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
